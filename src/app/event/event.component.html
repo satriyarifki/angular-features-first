@@ -1,0 +1,87 @@
+<div class="flex flex-row justify-center py-20 space-x-10">
+  <div
+    class="flex flex-col justify-center max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 basis-1/2"
+  >
+    <a href="{{ imageUrl }}" class="flex flex-col justify-center">
+      <h5
+        class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+        style="text-align: center"
+      >
+        {{ imageTitle }}
+      </h5>
+    </a>
+    <div class="flex justify-center py-5">
+      <img
+        [src]="imageUrl"
+        alt="Image"
+        style="max-width: 100%; object-fit: contain"
+        srcset=""
+      />
+    </div>
+    <div>
+      <label
+        for="first_name"
+        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+        >Change Image Title</label
+      >
+      <input
+        type="text"
+        id="first_name"
+        [(ngModel)]="imageTitle"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+      />
+    </div>
+  </div>
+  <div
+    class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 basis-1/2"
+  >
+    <a href="#">
+      <h5
+        class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+      >
+        {{ selectedColor }} Color
+      </h5>
+    </a>
+    <div [ngSwitch]="selectedColor">
+      <div
+        *ngSwitchCase="'Green'"
+        [style.background-color]="g"
+        [style.height]="colorHeight"
+      ></div>
+      <div
+        *ngSwitchCase="'Blue'"
+        [style.background-color]="b"
+        [style.height]="colorHeight"
+      ></div>
+      <div
+        *ngSwitchCase="'Red'"
+        [style.background-color]="r"
+        [style.height]="colorHeight"
+      ></div>
+      <div
+        *ngSwitchDefault
+        [style.background-color]="w"
+        [style.height]="colorHeight"
+      ></div>
+    </div>
+
+    <div class="pt-5">
+      <label
+        for="countries"
+        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+        >Choose a color</label
+      >
+      <select
+        id="countries"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        #colors
+        (change)="onSelected(colors.value)"
+      >
+        <option selected>Choose a color</option>
+        <option *ngFor="let color of listColor" value="{{ color }}">
+          {{ color }}
+        </option>
+      </select>
+    </div>
+  </div>
+</div>
