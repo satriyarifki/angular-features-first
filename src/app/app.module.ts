@@ -10,15 +10,17 @@ import { FormsModule } from '@angular/forms';
 import { DataComponent } from './data/data.component';
 import { HttpClientModule } from '@angular/common/http';
 import { EventComponent } from './event/event.component';
+import { HomeCardComponent } from './home-card/home-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LandingComponent,
     LoginComponent,
     HomeComponent,
     DataComponent,
     EventComponent,
+    HomeCardComponent,
+    LandingComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],

@@ -1,4 +1,7 @@
-<div class="flex justify-center items-stretch" style="height: 500px">
+<div
+  class="flex justify-center items-stretch py-10"
+  style="height: fit-content"
+>
   <div class="relative overflow-x-auto self-center" style="width: 50%">
     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
       <thead
@@ -10,26 +13,38 @@
           </th>
         </tr>
       </thead>
+
       <tbody>
         <tr
           class="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
-          *ngFor="let product of listProduct"
+          *ngFor="let product of dummy; let index = index"
         >
-          <td
-            *ngFor="let type of product; let index = index"
-            scope="row"
-            class="px-6 py-4"
-          >
+          <td scope="row" class="px-6 py-4">
             <span
-              *ngIf="index == 0; else eltype"
               class="font-medium text-gray-900 whitespace-nowrap dark:text-white"
             >
-              {{ type }}
+              {{ product.name }}
             </span>
-            <ng-template #eltype>{{ type }}</ng-template>
+          </td>
+          <td scope="row" class="px-6 py-4">
+            <span>
+              {{ product.color }}
+            </span>
+          </td>
+          <td scope="row" class="px-6 py-4">
+            <span>
+              {{ product.processor }}
+            </span>
+          </td>
+          <td scope="row" class="px-6 py-4">
+            <span> ${{ product.price }} </span>
           </td>
         </tr>
       </tbody>
     </table>
+    <div class="py-5 flex flex-col">
+      <h3 class="flex justify-center font-semibold">Chart Harga Product</h3>
+      <canvas id="chartPrice"></canvas>
+    </div>
   </div>
 </div>

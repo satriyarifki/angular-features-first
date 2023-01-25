@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class BackendService {
-  private dummy = 'https://dummyjson.com/products/categories';
+  private dummy = 'http://localhost:3000/product';
 
   constructor(private http: HttpClient) {}
   getDummy() {

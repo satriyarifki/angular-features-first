@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'data', component: DataComponent },
   { path: 'event', component: EventComponent },
-  // {path: '', redirectTo: '/landing', pathMatch: 'full'},
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
 ];
 
 @NgModule({
