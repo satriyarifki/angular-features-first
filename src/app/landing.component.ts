@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 @Component({
   selector: 'landing-name',
   templateUrl: 'landing.component.html',

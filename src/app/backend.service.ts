@@ -5,10 +5,10 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class BackendService {
-  private dummy = 'http://localhost:3000/product';
+  private product = 'http://localhost:3000/product';
 
   constructor(private http: HttpClient) {}
   getDummy() {
-    return this.http.get(this.dummy);
+    return this.http.get(this.product);
   }
 }
